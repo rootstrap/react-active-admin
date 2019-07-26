@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 const path = require('path')
-require('@babel/polyfill')
+require('@babel/plugin-transform-runtime')
+require('@babel/plugin-proposal-class-properties')
 
 module.exports = {
   module: {
@@ -12,6 +14,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/env', '@babel/react'],
+            plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties'],
           },
         },
       },
@@ -28,18 +31,20 @@ module.exports = {
   mode: 'development',
   plugins: [
     new HtmlWebPackPlugin({
-      template: `${__dirname}/react-app/index.html`,
+      template: `${__dirname}/app/index.html`,
+    }),
+    new WriteFilePlugin({
+      test: /^(?!.*(hot)).*/,
     }),
   ],
-  entry: ['@babel/polyfill', `${__dirname}/react-app/index.js`],
+  entry: `${__dirname}/app/index.js`,
   output: {
-    path: `${process.cwd()}/dist/`,
-    publicPath: 'http://localhost:8000',
+    path: `${process.cwd()}/dist`,
+    publicPath: '/',
     filename: 'bundle.js',
-    globalObject: 'this',
   },
   devServer: {
-    contentBase: './dist',
+    historyApiFallback: false,
   },
   resolve: {
     alias: {

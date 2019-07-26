@@ -1,8 +1,9 @@
 
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const config = require('../webpack.config.js')
+const config = require('../../webpack.config')
 const {scaffold} = require('../scaffold')
+const watch = require('node-watch')
 
 const {Command, flags} = require('@oclif/command')
 
@@ -20,7 +21,9 @@ class DevCommand extends Command {
       stats: {colors: true},
     }
 
-    await scaffold('./models')
+    watch('./models', {recursive: true}, async () => {
+      await scaffold('./models')
+    })
 
     const server = new WebpackDevServer(webpack(config), options)
 

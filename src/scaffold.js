@@ -1,4 +1,4 @@
-const { promises: fs } = require('fs')
+const {promises: fs} = require('fs')
 
 const getModels = async modelsPath => {
   const modelFiles = await fs.readdir(modelsPath)
@@ -17,7 +17,7 @@ const scaffold = async () => {
   try {
     fs.mkdir(dir)
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 
   const models = await getModels('./models')
@@ -25,5 +25,5 @@ const scaffold = async () => {
   return fs.writeFile('./dist/data.js', `export default ${JSON.stringify(models)}`)
 }
 
-module.exports = { scaffold, getModels }
+module.exports = {scaffold, getModels}
 
