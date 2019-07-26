@@ -17,7 +17,7 @@ class InitCommand extends Command {
   }
 }
 
-InitCommand.description = `Describe the command here
+InitCommand.description = `Init project
 ...
 Extra documentation goes here
 `

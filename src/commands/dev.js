@@ -36,7 +36,7 @@ class DevCommand extends Command {
   }
 }
 
-DevCommand.description = `Describe the command here
+DevCommand.description = `Run the development server
 ...
 Extra documentation goes here
 `

@@ -15,11 +15,11 @@ react active admin
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g ra
+$ npm install -g react-active-admin
 $ ra COMMAND
 running command...
 $ ra (-v|--version|version)
-ra/0.0.0 darwin-x64 node-v12.7.0
+react-active-admin/0.0.1 darwin-x64 node-v10.16.0
 $ ra --help [COMMAND]
 USAGE
   $ ra COMMAND
@@ -28,26 +28,43 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`ra hello`](#ra-hello)
+* [`ra build`](#ra-build)
+* [`ra dev`](#ra-dev)
 * [`ra help [COMMAND]`](#ra-help-command)
+* [`ra init`](#ra-init)
 
-## `ra hello`
+## `ra build`
 
-Describe the command here
+Build the react app
 
 ```
 USAGE
-  $ ra hello
-
-OPTIONS
-  -n, --name=name  name to print
+  $ ra build
 
 DESCRIPTION
   ...
   Extra documentation goes here
 ```
 
-_See code: [src/commands/hello.js](https://github.com/peter7z/ra/blob/v0.0.0/src/commands/hello.js)_
+_See code: [src/commands/build.js](https://github.com/peter7z/ra/blob/v0.0.1/src/commands/build.js)_
+
+## `ra dev`
+
+Run the development server
+
+```
+USAGE
+  $ ra dev
+
+OPTIONS
+  -p, --port=port  server port
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+```
+
+_See code: [src/commands/dev.js](https://github.com/peter7z/ra/blob/v0.0.1/src/commands/dev.js)_
 
 ## `ra help [COMMAND]`
 
@@ -65,4 +82,19 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
+
+## `ra init`
+
+Describe the command here
+
+```
+USAGE
+  $ ra init
+
+DESCRIPTION
+  ...
+  Extra documentation goes here
+```
+
+_See code: [src/commands/init.js](https://github.com/peter7z/ra/blob/v0.0.1/src/commands/init.js)_
 <!-- commandsstop -->
