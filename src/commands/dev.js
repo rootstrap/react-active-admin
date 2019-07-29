@@ -1,7 +1,7 @@
 
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const config = require('../../webpack.config')
+const config = require('../../webpack.config')()
 const {scaffold} = require('../scaffold')
 const watch = require('node-watch')
 
@@ -11,7 +11,8 @@ class DevCommand extends Command {
   async run() {
     const {flags} = this.parse(DevCommand)
     const port = flags.port || 8000
-    this.log('Running dev server')
+
+    this.log('Running dev server...')
 
     const options = {
       publicPath: config.output.publicPath,
