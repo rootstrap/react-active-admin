@@ -19,10 +19,13 @@ class DevCommand extends Command {
       inline: true,
       contentBase: 'www',
       stats: {colors: true},
+      historyApiFallback: false,
     }
 
-    watch('./models', {recursive: true}, async () => {
-      await scaffold('./models')
+    scaffold(`${process.cwd()}/models`)
+
+    watch(`${process.cwd()}/models`, {recursive: true}, async () => {
+      await scaffold(`${process.cwd()}/models`)
     })
 
     const server = new WebpackDevServer(webpack(config), options)

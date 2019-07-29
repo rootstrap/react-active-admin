@@ -17,7 +17,7 @@ class DevCommand extends Command {
   }
 
   async run() {
-    scaffold('./models')
+    scaffold(`${process.cwd()}/models`)
     this.pack()
   }
 }
