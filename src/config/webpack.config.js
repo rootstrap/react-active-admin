@@ -1,10 +1,10 @@
+require('core-js/stable')
+require('@babel/plugin-transform-runtime')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 const path = require('path')
-const {appDir} = require('./paths')
 const merge = require('webpack-merge')
-require('@babel/plugin-transform-runtime')
-require('@babel/plugin-proposal-class-properties')
+const {appDir} = require('./paths')
 
 const defaultConfig = {
   module: {
@@ -16,9 +16,11 @@ const defaultConfig = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/env', '@babel/react'],
+            presets: [
+              ['@babel/env', {useBuiltIns: 'usage', corejs: 3}],
+              '@babel/react',
+            ],
             plugins: [
-              require.resolve('@babel/plugin-transform-runtime'),
               require.resolve('@babel/plugin-proposal-class-properties'),
             ],
           },
