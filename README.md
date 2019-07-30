@@ -19,7 +19,7 @@ $ npm install -g react-active-admin
 $ ra COMMAND
 running command...
 $ ra (-v|--version|version)
-react-active-admin/0.0.4 darwin-x64 node-v11.1.0
+react-active-admin/0.0.4 darwin-x64 node-v10.16.0
 $ ra --help [COMMAND]
 USAGE
   $ ra COMMAND
