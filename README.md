@@ -19,7 +19,7 @@ $ npm install -g react-active-admin
 $ ra COMMAND
 running command...
 $ ra (-v|--version|version)
-react-active-admin/0.0.1 darwin-x64 node-v10.16.0
+react-active-admin/0.0.4 darwin-x64 node-v11.1.0
 $ ra --help [COMMAND]
 USAGE
   $ ra COMMAND
@@ -46,7 +46,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/build.js](https://github.com/peter7z/ra/blob/v0.0.1/src/commands/build.js)_
+_See code: [src/commands/build.js](https://github.com/peter7z/ra/blob/v0.0.4/src/commands/build.js)_
 
 ## `ra dev`
 
@@ -64,7 +64,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/dev.js](https://github.com/peter7z/ra/blob/v0.0.1/src/commands/dev.js)_
+_See code: [src/commands/dev.js](https://github.com/peter7z/ra/blob/v0.0.4/src/commands/dev.js)_
 
 ## `ra help [COMMAND]`
 
@@ -85,7 +85,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0
 
 ## `ra init`
 
-Describe the command here
+Init project
 
 ```
 USAGE
@@ -96,5 +96,5 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/init.js](https://github.com/peter7z/ra/blob/v0.0.1/src/commands/init.js)_
+_See code: [src/commands/init.js](https://github.com/peter7z/ra/blob/v0.0.4/src/commands/init.js)_
 <!-- commandsstop -->

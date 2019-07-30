@@ -1,7 +1,7 @@
 {
   "name": "react-active-admin",
   "description": "React admin",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "author": "Team2",
   "bin": {
     "ra": "./bin/run"
