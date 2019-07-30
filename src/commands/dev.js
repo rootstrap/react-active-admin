@@ -1,7 +1,7 @@
-
+const {appDir} = require('../config/paths')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const config = require('../../webpack.config')()
+const config = require('../config/webpack.config')
 const {scaffold} = require('../scaffold')
 const watch = require('node-watch')
 
@@ -15,22 +15,30 @@ class DevCommand extends Command {
     this.log('Running dev server...')
 
     const options = {
-      publicPath: config.output.publicPath,
+      publicPath: config().output.publicPath,
       hot: true,
       inline: true,
-      contentBase: `${process.cwd()}/dist`,
+      contentBase: `${appDir}/dist`,
       stats: {colors: true},
       historyApiFallback: false,
       open: true,
     }
 
-    scaffold(`${process.cwd()}/models`)
+    try {
+      await scaffold()
+    } catch (error) {
+      throw error
+    }
 
-    watch(`${process.cwd()}/models`, {recursive: true}, async () => {
-      await scaffold(`${process.cwd()}/models`)
+    watch(`${appDir}/models`, {recursive: true}, async () => {
+      try {
+        await scaffold()
+      } catch (error) {
+        throw error
+      }
     })
 
-    const server = new WebpackDevServer(webpack(config), options)
+    const server = new WebpackDevServer(webpack(config()), options)
 
     server.listen(port, 'localhost', err => {
       if (err) {

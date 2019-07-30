@@ -1,34 +1,36 @@
 const {promises: fs} = require('fs')
+const {appDir} = require('./config/paths')
+const defaultModel = require('./model')
 
 const getModels = async modelsPath => {
   try {
     const modelFiles = await fs.readdir(modelsPath)
-    const models = {}
-    for (let file of modelFiles) {
+    const models = await modelFiles.reduce(async (accumulatorP, file) => {
       const model = await fs.readFile(`${modelsPath}/${file}`)
       const [modelName] = file.split('.')
-      models[modelName] = JSON.parse(model)
-    }
+      const accumulator = await accumulatorP
+      return {...accumulator, [modelName]: {...defaultModel, ...JSON.parse(model)}}
+    }, Promise.resolve({}))
     return models
   } catch (error) {
-    console.log(error);
+    throw error
   }
 }
 
 const scaffold = async () => {
-  var dist = `${process.cwd()}/dist`;
+  var dist = `${appDir}/dist`
 
   try {
     fs.mkdir(dist)
   } catch (error) {
-    console.log(error);
+    throw error
   }
 
   try {
-    const models = await getModels(`${process.cwd()}/models`)
+    const models = await getModels(`${appDir}/models`)
     return fs.writeFile(`${dist}/data.js`, `export default ${JSON.stringify(models)}`)
   } catch (error) {
-    console.log(error);
+    throw error
   }
 }
 

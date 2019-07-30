@@ -1,11 +1,11 @@
 const webpack = require('webpack')
-const config = require('../../webpack.config')()
+const config = require('../config/webpack.config')
 const {scaffold} = require('../scaffold')
 const {Command} = require('@oclif/command')
 
 class DevCommand extends Command {
   pack() {
-    webpack(config,
+    webpack(config(),
       (err, stats) => {
         if (err) {
           this.log(err)
@@ -16,7 +16,7 @@ class DevCommand extends Command {
   }
 
   async run() {
-    scaffold(`${process.cwd()}/models`)
+    scaffold()
     this.pack()
   }
 }
