@@ -46,7 +46,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/build.js](https://github.com/peter7z/ra/blob/v0.0.4/src/commands/build.js)_
+_See code: [src/commands/build.js](https://github.com/rootstrap/react-active-admin/blob/v0.0.4/src/commands/build.js)_
 
 ## `ra dev`
 
@@ -64,7 +64,7 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/dev.js](https://github.com/peter7z/ra/blob/v0.0.4/src/commands/dev.js)_
+_See code: [src/commands/dev.js](https://github.com/rootstrap/react-active-admin/blob/v0.0.4/src/commands/dev.js)_
 
 ## `ra help [COMMAND]`
 
@@ -96,5 +96,5 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/init.js](https://github.com/peter7z/ra/blob/v0.0.4/src/commands/init.js)_
+_See code: [src/commands/init.js](https://github.com/rootstrap/react-active-admin/blob/v0.0.4/src/commands/init.js)_
 <!-- commandsstop -->
