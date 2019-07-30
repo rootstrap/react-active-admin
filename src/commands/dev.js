@@ -18,9 +18,10 @@ class DevCommand extends Command {
       publicPath: config.output.publicPath,
       hot: true,
       inline: true,
-      contentBase: 'www',
+      contentBase: `${process.cwd()}/dist`,
       stats: {colors: true},
       historyApiFallback: false,
+      open: true,
     }
 
     scaffold(`${process.cwd()}/models`)

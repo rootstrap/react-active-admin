@@ -1,6 +1,5 @@
-
 const webpack = require('webpack')
-const config = require('../../webpack.config.js')
+const config = require('../../webpack.config')()
 const {scaffold} = require('../scaffold')
 const {Command} = require('@oclif/command')
 
