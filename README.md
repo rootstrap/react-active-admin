@@ -1,7 +1,11 @@
-ra
+Reax - (_Under development_ )
 ==
 
-react active admin
+##### react easy admin x 
+_with an X is way cooler_
+
+
+#### 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/ra.svg)](https://npmjs.org/package/ra)
@@ -15,31 +19,31 @@ react active admin
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g react-active-admin
-$ ra COMMAND
+$ npm install -g reax
+$ reax COMMAND
 running command...
-$ ra (-v|--version|version)
+$ reax (-v|--version|version)
 react-active-admin/0.0.4 darwin-x64 node-v10.16.0
-$ ra --help [COMMAND]
+$ reax --help [COMMAND]
 USAGE
-  $ ra COMMAND
+  $ reax COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`ra build`](#ra-build)
-* [`ra dev`](#ra-dev)
-* [`ra help [COMMAND]`](#ra-help-command)
-* [`ra init`](#ra-init)
+* [`reax build`](#reax-build)
+* [`reax dev`](#reax-dev)
+* [`reax help [COMMAND]`](#reax-help-command)
+* [`reax init`](#reax-init)
 
-## `ra build`
+## `reax build`
 
 Build the react app
 
 ```
 USAGE
-  $ ra build
+  $ reax build
 
 DESCRIPTION
   ...
@@ -48,13 +52,13 @@ DESCRIPTION
 
 _See code: [src/commands/build.js](https://github.com/rootstrap/react-active-admin/blob/v0.0.4/src/commands/build.js)_
 
-## `ra dev`
+## `reax dev`
 
 Run the development server
 
 ```
 USAGE
-  $ ra dev
+  $ reax dev
 
 OPTIONS
   -p, --port=port  server port
@@ -66,13 +70,13 @@ DESCRIPTION
 
 _See code: [src/commands/dev.js](https://github.com/rootstrap/react-active-admin/blob/v0.0.4/src/commands/dev.js)_
 
-## `ra help [COMMAND]`
+## `reax help [COMMAND]`
 
-display help for ra
+display help for reax
 
 ```
 USAGE
-  $ ra help [COMMAND]
+  $ reax help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for
@@ -83,13 +87,13 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
 
-## `ra init`
+## `reax init`
 
 Init project
 
 ```
 USAGE
-  $ ra init
+  $ reax init
 
 DESCRIPTION
   ...

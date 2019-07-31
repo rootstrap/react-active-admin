@@ -1,13 +1,13 @@
 {
-  "name": "react-active-admin",
-  "description": "React admin",
+  "name": "react-easy-admin-x",
+  "description": "Reax",
   "version": "0.0.4",
-  "author": "Team2",
+  "author": "Rootstrap",
   "bin": {
-    "ra": "./bin/run"
+    "reax": "./bin/run"
   },
   "bugs": {
-    "url": "https://github.com/rootstrap/react-active-admin/issues"
+    "url": "https://github.com/rootstrap/reax/issues"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -58,14 +58,14 @@
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "ra",
+    "bin": "reax",
     "plugins": [
       "@oclif/plugin-help"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rootstrap/react-active-admin.git"
+    "url": "git+https://github.com/rootstrap/reax.git"
   },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
