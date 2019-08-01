@@ -1,16 +1,16 @@
-const {appDir} = require('../config/paths')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const watch = require('node-watch')
+const {Command, flags} = require('@oclif/command')
+
 const config = require('../config/webpack.config')
 const {scaffold} = require('../scaffold')
-const watch = require('node-watch')
-
-const {Command, flags} = require('@oclif/command')
+const {appDir} = require('../config/paths')
 
 class DevCommand extends Command {
   async run() {
     const {flags} = this.parse(DevCommand)
-    const port = flags.port || 8000
+    const port = flags.port
 
     this.log('Running dev server...')
 
@@ -49,13 +49,13 @@ class DevCommand extends Command {
   }
 }
 
+DevCommand.flags = {
+  port: flags.string({char: 'p', description: 'server port', default: 8008}),
+}
+
 DevCommand.description = `Run the development server
 ...
 Extra documentation goes here
 `
-
-DevCommand.flags = {
-  port: flags.string({char: 'p', description: 'server port'}),
-}
 
 module.exports = DevCommand
