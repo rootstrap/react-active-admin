@@ -23,7 +23,7 @@ $ npm install -g reax
 $ reax COMMAND
 running command...
 $ reax (-v|--version|version)
-react-active-admin/0.0.4 darwin-x64 node-v10.16.0
+react-easy-admin-x/0.0.4 darwin-x64 node-v10.16.0
 $ reax --help [COMMAND]
 USAGE
   $ reax COMMAND
