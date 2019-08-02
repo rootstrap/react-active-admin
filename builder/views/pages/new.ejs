@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    
+    <body class="container">
+        <header>
+            <% include ../partials/header %>
+        </header>
+
+        <main>
+            <div class="row">
+                <div class="col-sm-12">    
+                    <div class="jumbotron">
+                        <h1>New model</h1>
+                        <br>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="modelName" name="modelName" placeholder="Enter model name">
+                            </div>
+
+                            <div>
+                                <div id="addInputs" class="input-group">
+                                    <input type="text" id="fieldName" class="form-control" placeholder="Enter field name"/>
+                                    &nbsp;
+                                    <select class="form-control" id="fieldType">
+                                        <option value="" selected disabled hidden>Select field type</option>
+                                        <option value="string">string</option>
+                                        <option value="number">number</option>
+                                        <option value="boolean">boolean</option>
+                                    </select>
+                                    &nbsp;
+                                    <button style="width:100px" type="button" id="addFieldBtn" class="btn btn-success">Add</button>
+                                </div>
+                            </div>
+
+                            <br>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+
+        <script>
+            const getNewFieldTemplate = (name, type) => `
+                <div style="margin-bottom:20px;" class="input-group">
+                    <input disabled="true" type="text" class="form-control" value="${name}" />
+                    &nbsp;
+                    <select disabled="true" class="form-control">
+                        <option>${type}</option>
+                    </select>
+                    <input type="hidden" name="${name}" value="${type}" />
+                    &nbsp;
+                    <button style="width:100px" type="button" id="removeFieldBtn" class="btn btn-danger">Remove</button>
+                </div>
+            `;
+
+            $('#addFieldBtn').on('click', () => {
+                const fieldName = $('#fieldName').val();
+                const fieldType = $('#fieldType').val();
+
+                if(fieldName && fieldType) {
+                    const newFieldTemplate = getNewFieldTemplate(fieldName, fieldType);
+
+                    $(newFieldTemplate).insertBefore('#addInputs');
+                }
+            });
+
+            $('body').on('click', '#removeFieldBtn', (ev) => $(ev.target).parent().remove());
+        </script>
+    </body>
+</html>
