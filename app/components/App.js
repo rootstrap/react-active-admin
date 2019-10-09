@@ -8,10 +8,9 @@ import indexes from '../utils/resources/indexes';
 
 import Index from '../views/Index';
 import Create from '../views/Create';
+const App = ({ models }) => {
 
-class App extends Component {
-  renderNavBar = () => {
-    const { models } = this.props;
+  const renderNavBar = () => {
     const nav = indexes(models);
 
     return (
@@ -21,18 +20,16 @@ class App extends Component {
     );
   }
 
-  render() {
-    return (
-      <Router>
-        <div>
-          {this.renderNavBar()}
-          <Route path="/:model" exact component={Index} />
-          <Route path="/:model/new" exact component={Create} />
-          <Route path="/:model/:id/edit" exact component={Index} />
-        </div>
-      </Router>
-    );
-  }
+  return (
+    <Router>
+      <div>
+        {renderNavBar()}
+        <Route path="/:model" exact component={Index} />
+        <Route path="/:model/new" exact component={Create} />
+        <Route path="/:model/:id/edit" exact component={Index} />
+      </div>
+    </Router>
+  );
 }
 
 export default App;

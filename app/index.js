@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './components/App';
+import { configureStore } from 'redux-starter-kit';
+import { Provider } from 'react-redux'
 import data from 'data';
+import App from './components/App';
 
-ReactDOM.render(<App models={data} />, document.getElementById('app'));
+import reducer from './reducers';
+const store = configureStore({ reducer });
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
