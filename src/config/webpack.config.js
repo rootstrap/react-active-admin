@@ -2,6 +2,7 @@ require('core-js/stable')
 require('@babel/plugin-transform-runtime')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 const path = require('path')
 const merge = require('webpack-merge')
 const {appDir} = require('./paths')
@@ -50,6 +51,7 @@ const defaultConfig = {
     new WriteFilePlugin({
       test: /^(?!.*(hot)).*/,
     }),
+    new Dotenv(),
   ],
   output: {
     publicPath: '/',

@@ -10,6 +10,7 @@ class InitCommand extends Command {
     this.install()
     this.webpack()
     this.createSampleModel()
+    this.createBaseEnvFile()
   }
 
   install() {
@@ -32,7 +33,11 @@ class InitCommand extends Command {
 
   createSampleModel() {
     fs.mkdir(`${appDir}/models`)
-    fs.writeFile(`${appDir}/models/todo.json`, '{}')
+    fs.writeFile(`${appDir}/models/todo.json`, '{}\n')
+  }
+
+  createBaseEnvFile() {
+    fs.writeFile(`${appDir}/.env`, 'API_URL=\n')
   }
 }
 
