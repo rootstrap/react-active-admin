@@ -20,7 +20,7 @@ class DevCommand extends Command {
       inline: true,
       contentBase: `${appDir}/dist`,
       stats: {colors: true},
-      historyApiFallback: false,
+      historyApiFallback: true,
       open: true,
     }
 

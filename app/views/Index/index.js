@@ -5,7 +5,10 @@ import { singular } from 'pluralize';
 import axios from 'axios';
 
 const Index = (props) => {
-  const { match: { params: { model } } } = props;
+  const {
+    match: { params: { model } },
+    location: { state },
+  } = props;
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -18,7 +21,14 @@ const Index = (props) => {
   return (
     <>
       <h1>{model}</h1>
-      <Link to={`${model}/new`}>{`new ${singular(model)}`}</Link>
+      <Link
+        to={{
+          pathname: `${model}/new`,
+          state: { ...state },
+        }}
+      >
+        {`new ${singular(model)}`}
+      </Link>
       <ul>
         {items.map(item => <li>{JSON.stringify(item)}</li>)}
       </ul>
@@ -30,4 +40,5 @@ export default Index;
 
 Index.propTypes = {
   match: object.isRequired,
+  location: object.isRequired,
 };

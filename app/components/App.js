@@ -7,6 +7,7 @@ import NavLink from './NavLink';
 import indexes from '../utils/resources/indexes';
 
 import Index from '../views/Index';
+import Create from '../views/Create';
 
 class App extends Component {
   renderNavBar = () => {
@@ -26,7 +27,7 @@ class App extends Component {
         <div>
           {this.renderNavBar()}
           <Route path="/:model" exact component={Index} />
-          <Route path="/:model/new" exact component={Index} />
+          <Route path="/:model/new" exact component={Create} />
           <Route path="/:model/:id/edit" exact component={Index} />
         </div>
       </Router>
