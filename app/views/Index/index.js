@@ -12,14 +12,13 @@ const Index = ({
 }) => {
   const index = useIndex(model);
 
-  console.log(index);
   return (
     <>
       <h1>{model}</h1>
-      {/* <Table
+      <Table
         columns={Object.keys(attributes)}
         rows={index}
-      /> */}
+      />
       <FloatingButton
         to={{
           pathname: `${model}/new`,
