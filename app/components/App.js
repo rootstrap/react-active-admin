@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { object } from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -8,17 +8,17 @@ import indexes from '../utils/resources/indexes';
 
 import Index from '../views/Index';
 import Create from '../views/Create';
-const App = ({ models }) => {
 
+const App = ({ data }) => {
   const renderNavBar = () => {
-    const nav = indexes(models);
+    const nav = indexes(data);
 
     return (
       <nav>
         {Object.keys(nav).map(model => <NavLink key={model} label={model} model={nav[model]} />)}
       </nav>
     );
-  }
+  };
 
   return (
     <Router>
@@ -30,15 +30,15 @@ const App = ({ models }) => {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
 
 App.propTypes = {
-  models: object,
+  data: object,
 };
 
 App.defaultProps = {
-  models: {},
+  data: {},
 };
 

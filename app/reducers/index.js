@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import counter from './counterReducer';
+import models from './modelsReducer';
 
-export default combineReducers({ counter });
+export default combineReducers({ models });
