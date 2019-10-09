@@ -1,30 +1,31 @@
 import React from 'react';
 import { object } from 'prop-types';
-import { Link } from 'react-router-dom';
-import { singular } from 'pluralize';
+import AddIcon from '@material-ui/icons/Add';
 
+import Table from '../../components/Table';
+import FloatingButton from '../../components/FloatingButton';
 import useIndex from '../../hooks/models/useIndex';
 
 const Index = ({
   match: { params: { model } },
-  location: { state },
+  location: { state: { attributes }, state },
 }) => {
   const index = useIndex(model);
 
   return (
     <>
       <h1>{model}</h1>
-      <Link
+      <Table
+        columns={Object.keys(attributes)}
+        rows={index}
+      />
+      <FloatingButton
         to={{
           pathname: `${model}/new`,
           state: { ...state },
         }}
-      >
-        {`new ${singular(model)}`}
-      </Link>
-      <ul>
-        {index && index.map(item => <li key={item.id}>{JSON.stringify(item)}</li>)}
-      </ul>
+        Icon={AddIcon}
+      />
     </>
   );
 };
