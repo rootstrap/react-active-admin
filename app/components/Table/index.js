@@ -32,7 +32,7 @@ const Table = ({ columns, rows }) => {
         </TableHead>
         <TableBody>
           {rows.map(row => (
-            <TableRow key={row.name}>
+            <TableRow key={row.id}>
               {columns.map(column => <TableCell key={column}>{row[column]}</TableCell>)}
             </TableRow>
           ))}
