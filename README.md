@@ -2,7 +2,7 @@ Reax - (_Under development_ )
 ==
 
 ##### React Easy Admin X 
-_with an X is way cooler_
+_it's waaay cooler with an X_
 
 
 #### 
