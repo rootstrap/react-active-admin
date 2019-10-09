@@ -1,31 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { object } from 'prop-types';
-import axios from 'axios';
 import AddIcon from '@material-ui/icons/Add';
 
 import Table from '../../components/Table';
 import FloatingButton from '../../components/FloatingButton';
+import useIndex from '../../hooks/models/useIndex';
 
 const Index = ({
   match: { params: { model } },
   location: { state: { attributes }, state },
 }) => {
-  const [items, setItems] = useState([]);
+  const index = useIndex(model);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`http://localhost:3000/${model}`);
-      setItems(data);
-    })();
-  }, []);
-
+  console.log(index);
   return (
     <>
       <h1>{model}</h1>
-      <Table
+      {/* <Table
         columns={Object.keys(attributes)}
-        rows={items}
-      />
+        rows={index}
+      /> */}
       <FloatingButton
         to={{
           pathname: `${model}/new`,

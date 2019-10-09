@@ -40,9 +40,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const App = ({ models }) => {
+const App = ({ data }) => {
   const classes = useStyles();
-  const navigation = indexes(models);
+  const navigation = indexes(data);
 
   return (
     <Router>
@@ -90,9 +90,9 @@ const App = ({ models }) => {
 export default App;
 
 App.propTypes = {
-  models: object,
+  data: object,
 };
 
 App.defaultProps = {
-  models: {},
+  data: {},
 };
