@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { object } from 'prop-types';
-import { Link } from 'react-router-dom';
-import { singular } from 'pluralize';
 import axios from 'axios';
+import AddIcon from '@material-ui/icons/Add';
 
-const Index = (props) => {
-  const {
-    match: { params: { model } },
-    location: { state },
-  } = props;
+import Table from '../../components/Table';
+import FloatingButton from '../../components/FloatingButton';
+
+const Index = ({
+  match: { params: { model } },
+  location: { state: { attributes }, state },
+}) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -21,17 +22,17 @@ const Index = (props) => {
   return (
     <>
       <h1>{model}</h1>
-      <Link
+      <Table
+        columns={Object.keys(attributes)}
+        rows={items}
+      />
+      <FloatingButton
         to={{
           pathname: `${model}/new`,
           state: { ...state },
         }}
-      >
-        {`new ${singular(model)}`}
-      </Link>
-      <ul>
-        {items.map(item => <li>{JSON.stringify(item)}</li>)}
-      </ul>
+        Icon={AddIcon}
+      />
     </>
   );
 };

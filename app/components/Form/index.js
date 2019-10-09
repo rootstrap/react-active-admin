@@ -1,6 +1,9 @@
 import React from 'react';
 import { object, func, bool } from 'prop-types';
 import { Field } from 'formik';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+
 import TextField from '../common/TextField';
 import withForm from '../../hoc/withForm';
 
@@ -11,16 +14,25 @@ const Form = ({
   attributes,
 }) => (
   <form onSubmit={handleSubmit}>
-    {Object.keys(attributes).map(key => (
-      <Field
-        key={key}
-        name={key}
-        component={TextField}
-      />
-    ))}
-    <button type="submit" disabled={!isValid || isSubmitting}>
-      Submit
-    </button>
+    <Grid container spacing={3}>
+      <Grid item xs={6}>
+        {Object.keys(attributes).map(key => (
+          <Field
+            key={key}
+            name={key}
+            component={TextField}
+          />
+        ))}
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={!isValid || isSubmitting}
+        >
+          Submit
+        </Button>
+      </Grid>
+    </Grid>
   </form>
 );
 
