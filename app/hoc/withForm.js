@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { object, func } from 'prop-types';
 import { isEmpty } from 'lodash';
 import { Formik } from 'formik';
 
 const withForm = WrappedComponent => (
-  class extends Component {
+  class extends PureComponent {
     static propTypes = {
       validationSchema: object,
       initialValues: object,
