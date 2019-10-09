@@ -12,11 +12,13 @@ const Index = ({
 }) => {
   const index = useIndex(model);
 
+  const headers = Object.entries(attributes).map(([key]) => ({ title: key, field: key }));
+
   return (
     <>
       <h1>{model}</h1>
       <Table
-        columns={Object.keys(attributes)}
+        headers={headers}
         rows={index}
       />
       <FloatingButton
