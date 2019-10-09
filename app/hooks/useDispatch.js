@@ -3,5 +3,5 @@ import { useDispatch } from 'react-redux';
 
 export default (action, deps) => {
   const dispatch = useDispatch();
-  return useCallback(payload => dispatch(action(payload)), [dispatch, ...(deps || [])]);
+  return useCallback((...args) => dispatch(action(...args)), [dispatch, ...(deps || [])]);
 };

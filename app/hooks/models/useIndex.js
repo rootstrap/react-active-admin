@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import useModels from './useModels';
+import { useSelector } from 'react-redux';
 import useDispatch from '../useDispatch';
 import { index } from '../../actions/modelActions';
 
 export default (model, deps = []) => {
   const getIndex = useDispatch(index, [model, ...deps]);
-  useEffect(() => { getIndex(model); }, deps);
-  const items = useModels(modelState => modelState.index);
-  return items || [];
+  useEffect(() => { getIndex(model); }, [model, ...deps]);
+  const items = useSelector(state => state.models[model].index);
+  return items;
 };
