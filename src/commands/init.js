@@ -31,6 +31,12 @@ class InitCommand extends Command {
   }
 
   createSampleModel() {
+    try {
+      fs.mkdir(`${appDir}/models`)
+    } catch (error) {
+      throw error
+    }
+
     fs.writeFile(`${appDir}/models/todo.json`, '{}')
   }
 }
