@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { object } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { singular } from 'pluralize';
-import axios from 'axios';
 
-const Index = (props) => {
-  const {
-    match: { params: { model } },
-    location: { state },
-  } = props;
-  const [items, setItems] = useState([]);
+import useIndex from '../../hooks/models/useIndex';
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`http://localhost:3000/${model}`);
-      setItems(data);
-    })();
-  }, []);
+const Index = ({
+  match: { params: { model } },
+  location: { state },
+}) => {
+  const index = useIndex(model);
 
   return (
     <>
@@ -30,7 +23,7 @@ const Index = (props) => {
         {`new ${singular(model)}`}
       </Link>
       <ul>
-        {items.map(item => <li>{JSON.stringify(item)}</li>)}
+        {index && index.map(item => <li key={item.id}>{JSON.stringify(item)}</li>)}
       </ul>
     </>
   );

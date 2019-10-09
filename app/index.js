@@ -9,4 +9,4 @@ import App from './components/App';
 import reducer from './reducers';
 const store = configureStore({ reducer });
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
+ReactDOM.render(<Provider store={store}><App data={data} /></Provider>, document.getElementById('app'));
