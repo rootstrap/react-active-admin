@@ -13,8 +13,8 @@ const Index = ({
   const index = useIndex(model);
 
   const headers = useMemo(() => (
-    Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
-  ));
+    attributes && Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
+  ), [attributes]);
 
   return (
     <>

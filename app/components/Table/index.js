@@ -37,7 +37,7 @@ const tableIcons = {
   Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
   SortArrow: forwardRef((props, ref) => <ArrowUpward {...props} ref={ref} />),
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+  ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
 };
 
 const useStyles = makeStyles(theme => ({
@@ -59,7 +59,7 @@ const Table = ({ headers, rows }) => {
       <MaterialTable
         icons={tableIcons}
         columns={headers}
-        data={rows}
+        data={rows && rows.map(item => Object.assign({}, item))}
         actions={[
           () => ({
             icon: Edit,
