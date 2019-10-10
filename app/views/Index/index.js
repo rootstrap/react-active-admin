@@ -9,6 +9,7 @@ import useIndex from '../../hooks/models/useIndex';
 const Index = ({
   match: { params: { model } },
   location: { state: { attributes }, state },
+  history: { push },
 }) => {
   const index = useIndex(model);
 
@@ -22,6 +23,7 @@ const Index = ({
       <Table
         headers={headers}
         rows={index}
+        onRowClick={(event, { id }) => push(`${model}/${id}`, { ...state })}
       />
       <FloatingButton
         to={{
@@ -39,4 +41,5 @@ export default Index;
 Index.propTypes = {
   match: object.isRequired,
   location: object.isRequired,
+  history: object.isRequired,
 };

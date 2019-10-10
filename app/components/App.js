@@ -1,6 +1,6 @@
 import React from 'react';
 import { object } from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +14,7 @@ import indexes from '../utils/resources/indexes';
 
 import Index from '../views/Index';
 import Create from '../views/Create';
+import Show from '../views/Show';
 
 const drawerWidth = 240;
 
@@ -77,9 +78,12 @@ const App = ({ data }) => {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <div>
-            <Route path="/:model" exact component={Index} />
-            <Route path="/:model/new" exact component={Create} />
-            <Route path="/:model/:id/edit" exact component={Index} />
+            <Switch>
+              <Route path="/:model" exact component={Index} />
+              <Route path="/:model/new" exact component={Create} />
+              <Route path="/:model/:id" exact component={Show} />
+              <Route path="/:model/:id/edit" exact component={Index} />
+            </Switch>
           </div>
         </main>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { object, bool } from 'prop-types';
 import { ErrorMessage } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TextField = ({ field, field: { name }, form: { errors, touched } }) => {
+const TextField = ({ field, field: { name }, form: { errors, touched }, disabled }) => {
   const classes = useStyles();
 
   return (
@@ -29,6 +29,7 @@ const TextField = ({ field, field: { name }, form: { errors, touched } }) => {
       <InputLabel>{name}</InputLabel>
       <Input
         {...field}
+        disabled={disabled}
       />
       <FormHelperText>
         <ErrorMessage name={name} />
@@ -42,4 +43,9 @@ export default TextField;
 TextField.propTypes = {
   field: object.isRequired,
   form: object.isRequired,
+  disabled: bool,
+};
+
+TextField.defaultProps = {
+  disabled: false,
 };

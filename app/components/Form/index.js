@@ -8,10 +8,11 @@ import TextField from '../common/TextField';
 import withForm from '../../hoc/withForm';
 
 const Form = ({
-  handleSubmit,
   isValid,
-  isSubmitting,
+  disabled,
   attributes,
+  handleSubmit,
+  isSubmitting,
 }) => (
   <form onSubmit={handleSubmit}>
     <Grid container spacing={3}>
@@ -21,16 +22,19 @@ const Form = ({
             key={key}
             name={key}
             component={TextField}
+            disabled={disabled}
           />
         ))}
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          disabled={!isValid || isSubmitting}
-        >
-          Submit
-        </Button>
+        { !disabled && (
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            disabled={!isValid || isSubmitting}
+          >
+            Submit
+          </Button>
+        )}
       </Grid>
     </Grid>
   </form>
@@ -43,8 +47,10 @@ Form.propTypes = {
   handleSubmit: func.isRequired,
   isSubmitting: bool.isRequired,
   isValid: bool.isRequired,
+  disabled: bool,
 };
 
 Form.defaultProps = {
   attributes: {},
+  disabled: false,
 };

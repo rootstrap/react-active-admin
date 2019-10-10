@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react';
-import { array } from 'prop-types';
+import { array, func } from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import MaterialTable from 'material-table';
 import Paper from '@material-ui/core/Paper';
+import { noop } from 'lodash';
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
@@ -51,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Table = ({ headers, rows }) => {
+const Table = ({ headers, rows, onRowClick }) => {
   const classes = useStyles();
 
   return (
@@ -60,6 +61,7 @@ const Table = ({ headers, rows }) => {
         icons={tableIcons}
         columns={headers}
         data={rows && rows.map(item => Object.assign({}, item))}
+        onRowClick={onRowClick}
         actions={[
           () => ({
             icon: Edit,
@@ -88,4 +90,9 @@ export default Table;
 Table.propTypes = {
   rows: array.isRequired,
   headers: array.isRequired,
+  onRowClick: func,
+};
+
+Table.defaultProps = {
+  onRowClick: noop,
 };
