@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { object } from 'prop-types';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -12,7 +12,9 @@ const Index = ({
 }) => {
   const index = useIndex(model);
 
-  const headers = Object.entries(attributes).map(([key]) => ({ title: key, field: key }));
+  const headers = useMemo(() => (
+    Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
+  ));
 
   return (
     <>
