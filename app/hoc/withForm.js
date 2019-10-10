@@ -30,6 +30,7 @@ const withForm = WrappedComponent => (
 
     render() {
       const { initialValues, validationSchema } = this.props;
+      console.log(initialValues);
       return (
         <Formik
           onSubmit={this.handleSubmit}

@@ -6,5 +6,5 @@ import { show } from '../../actions/modelActions';
 export default (model, id, deps = []) => {
   const getItem = useDispatch(show, [model, ...deps]);
   useEffect(() => { getItem(model, id); }, [model, ...deps]);
-  return useSelector(state => state.models[model].current);
+  return useSelector(state => state.models[model].current) || {};
 };
