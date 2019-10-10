@@ -60,7 +60,7 @@ const Table = ({ headers, rows, onRowClick }) => {
       <MaterialTable
         icons={tableIcons}
         columns={headers}
-        data={rows}
+        data={rows && rows.map(item => Object.assign({}, item))}
         onRowClick={onRowClick}
         actions={[
           () => ({
