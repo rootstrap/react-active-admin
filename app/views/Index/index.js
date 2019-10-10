@@ -14,7 +14,7 @@ const Index = ({
 
   const headers = useMemo(() => (
     Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
-  ));
+  ), [attributes]);
 
   return (
     <>

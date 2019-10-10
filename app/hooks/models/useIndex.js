@@ -6,6 +6,5 @@ import { index } from '../../actions/modelActions';
 export default (model, deps = []) => {
   const getIndex = useDispatch(index, [model, ...deps]);
   useEffect(() => { getIndex(model); }, [model, ...deps]);
-  const items = useSelector(state => state.models[model].index);
-  return items;
+  return useSelector(state => state.models[model].index);
 };
