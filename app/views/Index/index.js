@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { object } from 'prop-types';
 import AddIcon from '@material-ui/icons/Add';
 
@@ -12,11 +12,15 @@ const Index = ({
 }) => {
   const index = useIndex(model);
 
+  const headers = useMemo(() => (
+    Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
+  ));
+
   return (
     <>
       <h1>{model}</h1>
       <Table
-        columns={Object.keys(attributes)}
+        headers={headers}
         rows={index}
       />
       <FloatingButton
