@@ -1,10 +1,10 @@
 /* eslint no-param-reassign: 0 */
-import { createReducer } from 'redux-starter-kit';
+import { createReducer } from 'redux-pro-kit';
 
-import data from 'data';
+import info from 'data';
 import { indexSuccess, showSuccess, updateIndex, removeFromIndex } from '../actions/modelActions';
 
-const initialState = Object.keys(data).reduce(
+const initialState = Object.keys(info).reduce(
   (acc, key) => ({ [key]: {}, ...acc }),
   {},
 );
@@ -12,12 +12,12 @@ const initialState = Object.keys(data).reduce(
 export default createReducer(
   initialState,
   {
-    [indexSuccess]: (state, { payload }) => { state[payload.model].index = payload.data; },
-    [showSuccess]: (state, { payload }) => { state[payload.model].current = payload.data; },
-    [updateIndex]: (state, { payload }) => { state[payload.model].index.unshift(payload.data); },
-    [removeFromIndex]: (state, { payload }) => {
-      state[payload.model].index.filter(
-        item => item.id !== payload.id,
+    [indexSuccess]: (state, { model, data }) => { state[model].index = data; },
+    [showSuccess]: (state, { model, data }) => { state[model].current = data; },
+    [updateIndex]: (state, { model, data }) => { state[model].index.unshift(data); },
+    [removeFromIndex]: (state, { model, id }) => {
+      state[model].index.filter(
+        item => item.id !== id,
       );
     },
   },

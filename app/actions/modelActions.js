@@ -1,4 +1,4 @@
-import { createAction } from 'redux-starter-kit';
+import { createAction } from 'redux-pro-kit';
 import axios from 'axios';
 
 export const indexSuccess = createAction('indexSuccess');
