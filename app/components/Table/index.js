@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Table = ({ headers, rows, onRowClick }) => {
+const Table = ({ headers, rows, onRowClick, onEditClick, onDestroyClick }) => {
   const classes = useStyles();
 
   return (
@@ -66,14 +66,12 @@ const Table = ({ headers, rows, onRowClick }) => {
           () => ({
             icon: Edit,
             tooltip: 'Edit',
-            // TODO add edit
-            onClick: (event, rowData) => {},
+            onClick: onEditClick,
           }),
           () => ({
             icon: DeleteOutline,
             tooltip: 'Delete',
-            // TODO add delete
-            onClick: (event, rowData) => {},
+            onClick: onDestroyClick,
           }),
         ]}
         options={{
@@ -91,8 +89,12 @@ Table.propTypes = {
   rows: array.isRequired,
   headers: array.isRequired,
   onRowClick: func,
+  onEditClick: func,
+  onDestroyClick: func,
 };
 
 Table.defaultProps = {
   onRowClick: noop,
+  onEditClick: noop,
+  onDestroyClick: noop,
 };
