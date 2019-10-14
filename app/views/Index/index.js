@@ -14,6 +14,8 @@ const Index = ({
 }) => {
   const index = useIndex(model);
 
+  const destroy = useDestroy(model);
+
   const headers = useMemo(() => (
     attributes && Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
   ), [attributes]);
@@ -25,12 +27,9 @@ const Index = ({
         headers={headers}
         rows={index}
         onDestroyClick={(event, { id }) => {
-          console.log('aaaaaaa');
-          event.preventDefault();
-          useDestroy(id);
+          destroy(id);
         }}
         onRowClick={(event, { id }) => {
-          console.log('asdasd')
           push(`${model}/${id}`, { ...state });
         }}
       />
