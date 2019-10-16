@@ -5,6 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Table from '../../components/Table';
 import FloatingButton from '../../components/FloatingButton';
 import useIndex from '../../hooks/models/useIndex';
+import useDestroy from '../../hooks/models/useDestroy';
 
 const Index = ({
   match: { params: { model } },
@@ -12,6 +13,8 @@ const Index = ({
   history: { push },
 }) => {
   const index = useIndex(model);
+
+  const destroy = useDestroy(model);
 
   const headers = useMemo(() => (
     attributes && Object.entries(attributes).map(([key]) => ({ title: key, field: key }))
@@ -23,7 +26,12 @@ const Index = ({
       <Table
         headers={headers}
         rows={index}
-        onRowClick={(event, { id }) => push(`${model}/${id}`, { ...state })}
+        onDestroyClick={(event, { id }) => {
+          destroy(id);
+        }}
+        onRowClick={(event, { id }) => {
+          push(`${model}/${id}`, { ...state });
+        }}
       />
       <FloatingButton
         to={{

@@ -16,7 +16,7 @@ export default createReducer(
     [showSuccess]: (state, { model, data }) => { state[model].current = data; },
     [updateIndex]: (state, { model, data }) => { state[model].index.unshift(data); },
     [removeFromIndex]: (state, { model, id }) => {
-      state[model].index.filter(
+      state[model].index = state[model].index.filter(
         item => item.id !== id,
       );
     },
